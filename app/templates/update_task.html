@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col m-5">
+        <h3 class="mb-4">Update Task</h3>
+        <a href="{% url 'index' %}"><button class="btn btn-primary mb-4">Previous</button></a>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn btn-success" type="submit" value="Salvar">
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+    $(document).ready(function () {
+        $("#id_title").addClass("form-control");
+        $("#id_description").addClass("form-control");
+    });
+</script>
+
+{% endblock %}
