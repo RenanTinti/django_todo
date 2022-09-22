@@ -17,17 +17,17 @@ def create_task(request):
 
     form = TaskForm()
 
+    context = {
+        'form': form,
+    }
+
     if request.method == 'POST':
         form = TaskForm(request.POST)
 
         if form.is_valid():
             form.save()
 
-            return redirect('index')
-    
-    context = {
-        'form': form,
-    }
+            return render(request, 'create_task.html', context)
 
     return render(request, 'create_task.html', context)
 
